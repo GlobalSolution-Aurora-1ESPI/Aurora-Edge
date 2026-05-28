@@ -90,7 +90,15 @@ Os componentes do circuito são **interativos**: clique neles durante a simulaç
 
 > 💡 **Por que às vezes demora ~1,5 s para mudar?** O sistema usa um *debounce* (ver Seção 4): ele exige 3 leituras seguidas confirmando a mudança antes de trocar de estado. Isso evita que a base fique "piscando" entre estados quando um sensor está exatamente no limite. É comportamento esperado, não travamento.
 
-## 6. Screenshot do Circuito Rodando
+## 6. Demonstração em Vídeo e Screenshot
+
+### Vídeo — simulação completa
+
+https://github.com/GlobalSolution-Aurora-1ESPI/Aurora-Edge/blob/main/docs/demo-aurora.mp4
+
+> O vídeo acima mostra o sistema completo funcionando: boot, estado DIA, NOITE, EMERGÊNCIA por bateria, EMERGÊNCIA por temperatura e normalização.
+
+### Screenshot do circuito
 
 ![Circuito AURORA no Wokwi](docs/screenshot-wokwi.png)
 
