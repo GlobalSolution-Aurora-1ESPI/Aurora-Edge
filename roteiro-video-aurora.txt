@@ -1,0 +1,220 @@
+============================================================
+ROTEIRO DE GRAVACAO - PROJETO AURORA
+Sistema de Gestao Energetica para Base Lunar
+Duracao estimada: ~2 a 3 minutos
+============================================================
+
+
+------------------------------------------------------------
+CONTEXTO DO PROJETO
+------------------------------------------------------------
+Projeto: AURORA - Sistema de Gestao Energetica para Base Lunar
+Disciplina: Edge Computing & Computer Systems
+Curso: Engenharia de Software - 1ESPi
+Instituicao: FIAP
+Entrega: Global Solution - 1 semestre de 2025
+
+O que e o projeto:
+O AURORA e um sistema embarcado desenvolvido em Arduino Uno
+que simula o controle energetico de uma base lunar habitada.
+A inspiracao vem do programa Artemis, iniciativa internacional
+liderada pela NASA que tem como objetivo retornar o ser humano
+a Lua de forma sustentavel e permanente.
+
+Na Lua nao ha tomada na parede. Toda a energia vem de paineis
+solares e fica armazenada em baterias. O dia lunar dura cerca
+de 14 dias terrestres - e a noite tambem. Durante a noite, a
+base depende 100% da bateria. Se ela acabar, ou se o calor
+interno ficar alto demais, vidas estao em risco.
+
+O AURORA resolve esse problema monitorando tres variaveis em
+tempo real:
+  - Luminosidade (simulada por um sensor LDR / painel solar)
+  - Nivel de bateria (simulado por um potenciometro)
+  - Temperatura interna (medida pelo sensor DHT22)
+
+Com base nessas leituras, o sistema classifica a base em um
+de tres estados operacionais e aciona os atuadores:
+  - DIA: ha luz solar, tudo normal, LED verde aceso
+  - NOITE: sem luz, bateria segura, LED amarelo aceso
+  - EMERGENCIA: bateria critica ou temperatura alta demais,
+    LED vermelho + buzzer + servo corta a carga
+
+O circuito e todo simulado no Wokwi, uma plataforma online
+gratuita que permite testar projetos de Arduino sem precisar
+de nenhum componente fisico.
+
+Integrantes:
+  - Bruno Carreiro Dos Santos         RM 569423
+  - Eduardo Bechara Medeiros Craveiro RM 571081
+  - Gustavo Ferreira Tavares          RM 569928
+  - Gustavo Moita de Lima             RM 569180
+  - Felipe Rabelo                     RM 570340
+
+Link do simulador:
+https://wokwi.com/projects/465189529004507137
+
+Link do repositorio:
+https://github.com/GlobalSolution-Aurora-1ESPI/Aurora-Edge
+
+
+------------------------------------------------------------
+ANTES DE COMECAR A GRAVAR
+------------------------------------------------------------
+- Abra o projeto: https://wokwi.com/projects/465189529004507137
+- Deixe a janela do navegador em tela cheia, com o codigo a
+  esquerda e o circuito a direita.
+- Deixe o Serial Monitor visivel na parte de baixo.
+- Configure os sensores nos valores iniciais (luz alta,
+  bateria ~70%, temperatura ~22 C) para comecar no estado DIA.
+- No Windows, grave com Xbox Game Bar (Win + G -> botao de
+  gravar) ou OBS Studio.
+- Dica: fale pausado. Se errar, pare alguns segundos e refaca
+  a frase - fica facil de cortar depois.
+
+
+============================================================
+CENA 1 - ABERTURA (~15s)
+============================================================
+TELA: mostre o projeto completo (codigo + circuito), sem
+iniciar ainda.
+
+FALA:
+"Ola! Este e o AURORA, um sistema de gestao energetica para
+uma base lunar, desenvolvido em Arduino e simulado no Wokwi.
+Ele monitora luz, bateria e temperatura, e decide
+automaticamente se a base esta em modo Dia, Noite ou
+Emergencia. Vou mostrar o circuito funcionando."
+
+
+============================================================
+CENA 2 - APRESENTANDO O CIRCUITO (~20s)
+============================================================
+TELA: passe o mouse devagar sobre cada componente conforme
+cita.
+
+FALA:
+"No circuito temos: o sensor de luz, que simula o painel
+solar; o potenciometro, que representa o nivel da bateria; o
+sensor DHT22, que mede temperatura e umidade; tres LEDs -
+verde, amarelo e vermelho - para sinalizar o estado; um
+buzzer para o alarme; um servo motor, que corta a energia em
+emergencias; e um display LCD, que mostra tudo localmente."
+
+
+============================================================
+CENA 3 - INICIANDO A SIMULACAO (~15s)
+============================================================
+TELA: clique no botao verde de play (Start Simulation).
+Aguarde o boot do LCD.
+
+FALA:
+"Ao iniciar a simulacao, o sistema faz o boot: o display
+mostra a mensagem de inicializacao do AURORA e, em seguida,
+comeca a exibir o estado atual e as leituras dos sensores em
+tempo real."
+
+
+============================================================
+CENA 4 - ESTADO DIA (~20s)
+============================================================
+TELA: confirme luz alta. Aponte para o LED verde e o LCD.
+
+FALA:
+"Com luz solar suficiente, a base entra em modo Dia. Repare
+no LED verde aceso e no display mostrando 'DIA'. Aqui esta
+tudo normal: a carga esta conectada e nao ha nenhum alarme."
+
+
+============================================================
+CENA 5 - ESTADO NOITE (~20s)
+============================================================
+TELA: clique no sensor de luz (LDR) e reduza a luz para o
+nivel baixo. Mantenha a bateria em 30% ou mais. Aguarde ~2s
+(debounce).
+
+FALA:
+"Agora vou simular o anoitecer, reduzindo a luz do sensor.
+Como a bateria ainda esta em nivel seguro, a base passa para
+o modo Noite: o LED amarelo acende e o display mostra
+'NOITE'. A base continua operando normalmente, so que agora
+usando energia da bateria."
+
+
+============================================================
+CENA 6 - EMERGENCIA POR BATERIA (~25s)
+============================================================
+TELA: com a luz ainda baixa, gire o potenciometro para abaixo
+de 30%. Aguarde o debounce. Aponte para LED vermelho, buzzer
+e servo.
+
+FALA:
+"Mas e se a bateria comecar a acabar durante a noite? Vou
+baixar o nivel para menos de 30%. Imediatamente o sistema
+entra em Emergencia: o LED vermelho acende, o buzzer dispara
+o alarme, e o servo motor gira para cortar a energia dos
+equipamentos nao essenciais, protegendo a base. O display
+mostra 'EMERGENCIA' e a causa: bateria."
+
+
+============================================================
+CENA 7 - EMERGENCIA POR TEMPERATURA (~20s)
+============================================================
+TELA: normalize a bateria (>=30%) para sair da emergencia,
+depois clique no DHT22 e suba a temperatura acima de 40 C.
+
+FALA:
+"A emergencia tambem pode ser causada por superaquecimento.
+Independente da luz e da bateria, se a temperatura ultrapassar
+40 graus, o sistema aciona o mesmo protocolo de seguranca:
+alarme, LED vermelho e corte de carga. Para uma base lunar,
+controlar a temperatura e questao de sobrevivencia."
+
+
+============================================================
+CENA 8 - NORMALIZACAO (~15s)
+============================================================
+TELA: baixe a temperatura para abaixo de 40 C. Aguarde a base
+voltar ao normal.
+
+FALA:
+"Assim que as condicoes voltam ao normal - bateria segura e
+temperatura controlada - a base sai da emergencia
+automaticamente e retorna ao modo Dia ou Noite, conforme a
+luz disponivel."
+
+
+============================================================
+CENA 9 - SERIAL MONITOR (~15s)
+============================================================
+TELA: aponte para o Serial Monitor mostrando os ciclos.
+
+FALA:
+"Todo esse processo e registrado no Serial Monitor, que
+funciona como o diario de bordo da base: ele mostra o estado,
+a causa, e as leituras de luz, bateria, temperatura e umidade
+a cada ciclo, permitindo acompanhar tudo em detalhes."
+
+
+============================================================
+CENA 10 - ENCERRAMENTO (~15s)
+============================================================
+TELA: volte para a visao geral do circuito rodando.
+
+FALA:
+"E esse e o AURORA: um sistema embarcado que mantem uma base
+lunar segura, reagindo automaticamente a falta de luz, queda
+de bateria e superaquecimento. Obrigado por assistir!"
+
+
+------------------------------------------------------------
+DICA DE DETALHE TECNICO (opcional, para impressionar)
+------------------------------------------------------------
+Se quiser citar um diferencial em qualquer cena de troca de
+estado:
+
+"O sistema usa um debounce de tres leituras antes de mudar de
+estado, evitando alarmes falsos quando um sensor fica
+oscilando bem no limite."
+
+============================================================
