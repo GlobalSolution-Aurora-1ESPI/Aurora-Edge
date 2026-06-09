@@ -228,16 +228,16 @@ EstadoAurora classificarEstadoEnum(int luz, int bateria, float temp) {
     return ESTADO_EMERGENCIA;
   }
 
+  if (bateria < BAT_SEGURA) {
+    causaEmergencia = BAT_CRITICA_CAUSA;
+    return ESTADO_EMERGENCIA;
+  }
+
   if (luz > LUZ_DIA) {
     return ESTADO_DIA;
   }
 
-  if (bateria >= BAT_SEGURA) {
-    return ESTADO_NOITE;
-  }
-
-  causaEmergencia = BAT_CRITICA_CAUSA;
-  return ESTADO_EMERGENCIA;
+  return ESTADO_NOITE;
 }
 
 /*

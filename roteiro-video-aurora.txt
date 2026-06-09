@@ -12,7 +12,7 @@ Projeto: AURORA - Sistema de Gestao Energetica para Base Lunar
 Disciplina: Edge Computing & Computer Systems
 Curso: Engenharia de Software - 1ESPi
 Instituicao: FIAP
-Entrega: Global Solution - 1 semestre de 2025
+Entrega: Global Solution - 1 semestre de 2026
 
 O que e o projeto:
 O AURORA e um sistema embarcado desenvolvido em Arduino Uno

@@ -36,7 +36,7 @@ Os "sensores" são controlados por você na tela, então é você quem simula o 
 
 ## 2. Objetivo
 
-O objetivo do AURORA é manter a operação mínima de uma base lunar mesmo durante variações de luz, bateria e temperatura. O sistema lê um LDR como simulação de painel solar, um potenciômetro como nível de bateria e um DHT22 como sensor ambiental. Quando há luz suficiente, a base opera em modo DIA; quando a luz cai, passa para NOITE se a bateria estiver segura; se a bateria ficar crítica ou a temperatura exceder o limite, entra em EMERGÊNCIA. Em emergência, o sistema alerta com buzzer, sinaliza com LED vermelho e move o servo para cortar cargas não essenciais.
+O objetivo do AURORA é manter a operação mínima de uma base lunar mesmo durante variações de luz, bateria e temperatura. O sistema lê um LDR como simulação de painel solar, um potenciômetro como nível de bateria e um DHT22 como sensor ambiental. Quando a bateria e a temperatura estão seguras, a base opera em modo DIA se houver luz suficiente, ou em modo NOITE se a luz cair. Se a bateria ficar crítica ou a temperatura exceder o limite, entra em EMERGÊNCIA. Em emergência, o sistema alerta com buzzer, sinaliza com LED vermelho e move o servo para cortar cargas não essenciais.
 
 ## 3. Componentes Utilizados
 
@@ -84,7 +84,7 @@ Os componentes do circuito são **interativos**: clique neles durante a simulaç
 |-----------------|-------------------------|----------------------|
 | 🟢 **DIA** | Clique no **sensor de luz (LDR)** e arraste a luz para o nível alto (claro). | LED **verde** acende; LCD mostra `DIA`; servo na posição de carga conectada; buzzer em silêncio. |
 | 🟡 **NOITE** | Escureça o **LDR** (luz baixa) **e** mantenha o **potenciômetro** (bateria) em **30% ou mais**. | LED **amarelo** acende; LCD mostra `NOITE`. |
-| 🔴 **EMERGÊNCIA (bateria)** | Com a luz baixa, gire o **potenciômetro** para **abaixo de 30%**. | LED **vermelho** acende; **buzzer apita**; servo gira para cortar a carga; LCD mostra `EMERGENCIA`. |
+| 🔴 **EMERGÊNCIA (bateria)** | Gire o **potenciômetro** para **abaixo de 30%**, com luz alta ou baixa. | LED **vermelho** acende; **buzzer apita**; servo gira para cortar a carga; LCD mostra `EMERGENCIA`. |
 | 🔴 **EMERGÊNCIA (temperatura)** | Clique no **sensor DHT22** e aumente a temperatura para **acima de 40 °C**. | Mesma reação acima — alarme e corte de carga, independente da luz/bateria. |
 | ✅ **Normalizar** | Volte a bateria para **≥ 30%** e a temperatura para **abaixo de 40 °C**. | A base sai da emergência e volta para DIA ou NOITE conforme a luz. |
 
